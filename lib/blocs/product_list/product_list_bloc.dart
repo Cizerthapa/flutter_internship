@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../blocs/product_list/product_list_event.dart';
 import '../../blocs/product_list/product_list_state.dart';
-import '../../models/product.dart';
 import '../../services/product_service.dart';
 
 class ProductListBloc extends Bloc<ProductListEvent, ProductListState> {

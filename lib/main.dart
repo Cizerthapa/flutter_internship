@@ -16,15 +16,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Initialize ProductService and pass it to ProductListBloc
+    final productService = ProductService();
+
     return MultiProvider(
       providers: [
-        Provider<ProductService>(create: (_) => ProductService()),
+        // Providing ProductService instance
+        Provider<ProductService>(create: (_) => productService),
+
+        // Injecting ProductService into ProductListBloc
         BlocProvider<ProductListBloc>(
           create:
-              (context) => ProductListBloc(
-                Provider.of<ProductService>(context, listen: false),
-              )..add(LoadProducts()),
+              (context) => ProductListBloc(productService)..add(LoadProducts()),
         ),
+
+        // Providing CartBloc instance
         BlocProvider<CartBloc>(create: (_) => CartBloc()),
       ],
       child: MaterialApp(
@@ -35,8 +41,4 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
-
-  // Test - Line
-  // Test - line 2
-  // Test - Line 3
 }

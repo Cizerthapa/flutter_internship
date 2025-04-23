@@ -29,23 +29,17 @@ class Product extends Equatable {
 
   factory Product.fromJson(Map<String, dynamic> json) {
     return Product(
-      id: json['id'] as int? ?? 0, // Provide default if null
-      title: json['title'] as String? ?? '', // Provide default if null
-      description:
-          json['description'] as String? ?? '', // Provide default if null
-      price: json['price'] as num? ?? 0, // Provide default if null
-      discountPercentage:
-          json['discountPercentage'] as num? ?? 0.0, // Provide default if null
-      rating:
-          (json['rating'] as num?)?.toDouble() ??
-          0.0, // Provide default if null
-      stock: json['stock'] as num? ?? 0, // Provide default if null
-      brand: json['brand'] as String? ?? '', // Provide default if null
-      category: json['category'] as String? ?? '', // Provide default if null
-      thumbnail: json['thumbnail'] as String? ?? '', // Provide default if null
-      images:
-          (json['images'] as List<dynamic>?)?.cast<String>() ??
-          [], // Provide default if null
+      id: json['id'] as int? ?? 0,
+      title: json['title'] as String? ?? '',
+      description: json['description'] as String? ?? '',
+      price: json['price'] as num? ?? 0,
+      discountPercentage: json['discountPercentage'] as num? ?? 0.0,
+      rating: (json['rating'] as num?)?.toDouble() ?? 0.0,
+      stock: json['stock'] as num? ?? 0,
+      brand: json['brand'] as String? ?? '',
+      category: json['category'] as String? ?? '',
+      thumbnail: json['thumbnail'] as String? ?? '',
+      images: (json['images'] as List<dynamic>?)?.cast<String>() ?? [],
     );
   }
 
